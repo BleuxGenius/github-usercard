@@ -53,32 +53,40 @@ const followersArray = [];
 
 */
 
-function GitCard(element){
+function GitCard(gitUser){
 
   // create the elements
-  const newCard = document.createElement('div'),
-        newImage = document.createElement('img'),
-        newName = document.createElement('h3'),
-        newUserName = document.createElement('p'),
-        newLocation = document.createElement('p'),
-        newProfile = document.createElement('p'),
-        newProfileHTTP = document.createElement('a');
-        newFollower = document.createElement('p'),
-        newFollowing = document.createElement('p'),
-        newBio = document.createElement('p');
+  const card = document.createElement('div'),
+        cardImg = document.createElement('img'),
+        cardName = document.createElement('h3'),
+        cardInfo = document.createElement('div');
+        cardUserName = document.createElement('p'),
+        cardLocation = document.createElement('p'),
+        cardProfile = document.createElement('p'),
+        cardProfileHTTP = document.createElement('a');
+        cardFollower = document.createElement('p'),
+        cardFollowing = document.createElement('p'),
+        cardBio = document.createElement('p');
 
         // classes
+        card.classList.add('card');
+        cardInfo.classList.add('card-info');
+        cardName.classList.add('name');
+        cardUserName.classList.add('.username');
+        
 
-        card.classList.add('card')
-
-//  document content
-
-      newName.textContent = element.newName;
-      newUserName.textContent = element.newUserName;
-      newLocation.textContent = 'Location: ' + element.newLocation;
-      newProfile.textContent = 'Profile: ';
-      newProfileHTTP.textContent = element.html_url;
-
+        //  document content
+      cardImg.src = gitUser.avatar_url;
+      cardName.textContent = gitUser.name;
+      cardUserName.textContent = gitUser.cardUserName;
+      cardLocation.textContent = `Location: ${gitUser.cardLocation}`;
+      cardProfile.textContent = 'Profile: ';
+      cardProfileHTTP.href = gitUser.html_url;
+      cardProfileHTTP.textContent = gitUser.html_url;
+      cardProfileHTTP.target = '_blank';
+      cardFollower.textContent = `Followers: ${gitUser.cardFollower}`;
+      cardFollowing.textContent = `Following: ${gitUser.cardFollowing}`;
+      cardBio.textContent = gitUser.cardBio;
 
 
 }
